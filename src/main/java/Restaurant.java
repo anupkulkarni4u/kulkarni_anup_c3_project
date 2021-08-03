@@ -1,6 +1,7 @@
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Restaurant {
@@ -61,6 +62,14 @@ public class Restaurant {
     
     public String getName() {
         return name;
+    }
+    
+    public int getOrderTotal(List<String> itemNames) {
+        int orderTotal = 0;
+        for(String itemName:  itemNames){
+            orderTotal = orderTotal +  findItemByName(itemName).getPrice();
+        }
+        return orderTotal;
     }
     
 }
