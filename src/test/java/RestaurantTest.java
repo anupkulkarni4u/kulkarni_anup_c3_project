@@ -3,6 +3,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RestaurantTest {
@@ -59,4 +62,16 @@ class RestaurantTest {
         assertThrows(itemNotFoundException.class, ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    
+    
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDER-TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void order_total_should_return_sum_of_all_the_items_added_to_the_list() {
+        List<String> orderList = new ArrayList<String>();
+        orderList.add("Sweet corn soup");
+        orderList.add("Vegetable lasagne");
+        assertEquals(388, restaurant.getOrderTotal(orderList));
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDER-TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    
 }
